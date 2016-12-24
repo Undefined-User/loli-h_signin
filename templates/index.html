@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>loli-h自动签到</title>
+    <!-- PACE-->
+    <link rel="stylesheet" type="text/css" href="./static/pace-theme-flash.css">
+    <script type="text/javascript" src="./static/pace.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="./static/themify-icons.css">
+    <!-- Primary Style-->
+    <link rel="stylesheet" type="text/css" href="./static/second-layout.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body style="background-image: url(&quot;./static/14.jpg&quot;);" class="body-bg-full v3  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+    <div class="container page-container">
+      <div class="page-content">
+        <div class="main-content">
+          <div class="v3">
+            <div class="logo"><img src="./static/logo-sm-dark.png" alt="" width="80"></div>
+            <form method="post" action="/signin" class="form-horizontal">
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <input type="text" name="username" placeholder="Username" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                  <input type="password" name="userpass" placeholder="Password" class="form-control">
+                </div>
+              </div>
+              <button type="submit" class="btn-lg btn btn-primary btn-rounded btn-block">签到吧</button>
+            </form>
+            <hr>
+            <p class="text-muted">登录之后，账号信息就存到你当前浏览器的cookies中了，下次你直接访问下个页面（/signin）即可。</p>
+            <hr>
+            <div class="clearfix">
+              <p class="text-muted mb-0 pull-left">想看看源码？</p><a href="https://github.com/donghouhe/loli-h_signin" class="inline-block pull-right">Github</a>
+            </div>
+          </div>
+        </div>
+        <div class="sub-content">
+          <ul class="text-white activity-list list-unstyled mb-0">
+            <li class="activity-white">
+              <div class="media">
+                <div class="media-left">
+                  <time datetime="2015-12-10T20:50:48+07:00" class="fs-30 fw-500">11:20<span class="fs-14">PM</span></time>
+                </div>
+                <div class="media-body">
+                  <h5 class="media-heading">融合进网站中</h5>
+                  <p>费了一番功夫，现学现用websocket，总算做好了</p>
+                </div>
+              </div>
+            </li>
+            <li class="activity-white">
+              <div class="media">
+                <div class="media-left">
+                  <time datetime="2015-12-10T20:50:48+07:00" class="fs-30 fw-500">07:30<span class="fs-14">PM</span></time>
+                </div>
+                <div class="media-body">
+                  <h5 class="media-heading">解决</h5>
+                  <p>用phantomjs来执行这js版的Aes吧</p>
+                </div>
+              </div>
+            </li>
+            <li class="activity-white">
+              <div class="media">
+                <div class="media-left">
+                  <time datetime="2015-12-10T20:50:48+07:00" class="fs-30 fw-500">03:15<span class="fs-14">PM</span></time>
+                </div>
+                <div class="media-body">
+                  <h5 class="media-heading">我遇到困难</h5>
+                  <p>密码传递过去是Aes加密的，可是Aes各版本加密结果不同，这意味着我不能用python版的加密去做 </p>
+                </div>
+              </div>
+            </li>
+            <li class="activity-white">
+              <div class="media">
+                <div class="media-left">
+                  <time datetime="2015-12-10T20:50:48+07:00" class="fs-30 fw-500">10:50<span class="fs-14">AM</span></time>
+                </div>
+                <div class="media-body">
+                  <h5 class="media-heading">我想找些合作伙伴一起来</h5>
+                  <p>哈哈，下面这几位。。。都不是，我要单干了</p>
+                  <ul class="list-inline">
+                    <li>
+                      <div class="avatar"><img src="./static/02.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                    </li>
+                    <li>
+                      <div class="avatar"><img src="./static/03.jpg" alt="" class="media-object img-circle"><span class="status bg-warning"></span></div>
+                    </li>
+                    <li>
+                      <div class="avatar"><img src="./static/07.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
+                    </li>
+                    <li>
+                      <div class="avatar"><img src="./static/05.jpg" alt="" class="media-object img-circle"><span class="status bg-success"></span></div>
+                    </li>
+                    <li>
+                      <div class="avatar"><img src="./static/06.jpg" alt="" class="media-object img-circle"><span class="status bg-danger"></span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="activity-white">
+              <div class="media">
+                <div class="media-left">
+                  <time datetime="2015-12-10T20:50:48+07:00" class="fs-30 fw-500">09:20<span class="fs-14">AM</span></time>
+                </div>
+                <div class="media-body">
+                  <h5 class="media-heading">我有一点小想法</h5>
+                  <p>我想要要自动签到loli-h.com</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery-->
+    <script type="text/javascript" src="./static/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript-->
+    <script type="text/javascript" src="./static/bootstrap.min.js"></script>
+    <!-- Custom JS-->
+    <script type="text/javascript" src="./static/extra-demo.js"></script>
+
+</body></html>

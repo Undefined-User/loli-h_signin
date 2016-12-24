@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Umega</title>
+    <script type="text/javascript" src="./static/pace.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" href="./static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/first-layout.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body data-sidebar-color="sidebar-light" class="sidebar-light  pace-done">
+    <div style="height: 197px" class="overlay-container overlay-color"><img src="./static/34.jpg" alt="" class="overlay-bg img-responsive"></div>
+    <div style="position: relative">
+        <a href="file:///Users/chen/Downloads/Umega/first-layout/index.html#" style="position: absolute; top: -70px; left: 50%; margin-left: -50px; border-radius: 50%; padding: 3px; background-color: #FFF"><img src="./static/19.jpg" width="100" alt="" class="img-circle"></a>
+    </div>
+    <div class="text-center p-20 bd-l bd-r">
+        <h4 class="text-primary mt-30 mb-5">啊哈，去吧websocket！</h4>
+        <p>我保证绝对不会私自保存你的账户信息，你可以放心使用</p>
+        <p class="mb-0">假如显示你登录成功，那么下次你直接打开这个页面服务器会提取出你cookies中的用户账号以及密码并自动登录及签到。假如你的密码是错误的，那么你最好回到首页重新登录吧。</p>
+    </div>
+    <div class="row row-0 p-15 text-center bg-black">
+        <div class="col-xs-4">
+            <div class="fs-20 fw-500">不记录信息故无数字</div>
+            <div class="text-muted">登录数</div>
+        </div>
+        <div class="col-xs-4">
+            <div class="fs-20 fw-500">不记录信息故无数字</div>
+            <div class="text-muted">签到数</div>
+        </div>
+        <div class="col-xs-4">
+            <div class="fs-20 fw-500">不记录信息故无数字</div>
+            <div class="text-muted">失败数</div>
+        </div>
+        </div>
+
+<div class="col-md-6">
+              <div class="widget no-border overlay-container"><img src="./static/06.jpg" alt="" class="overlay-bg img-responsive">
+                <div class="overlay-content p-30">
+                  <div class="clearfix">
+                    <div class="pull-left"><i class="fs-60 wi wi-day-cloudy-gusts"></i>
+                      <div class="mt-15 mb-5 fw-500 fs-22">你和服务器有个约会</div>
+                      <div class="fs-18">可是。。。</div>
+                    </div>
+                    <div class="pull-right text-right">
+                      <div class="fs-20">延迟</div>
+                      <div class="fs-100 fw-700"><span class="counter" id="ping-pong">76</span><sup>ms</sup></div>
+                    </div>
+                  </div>
+                  <div id="flot-weather" style="height: 107px; padding: 0px; position: relative;"><canvas class="flot-base" width="450" height="107" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 107px;"></canvas><canvas class="flot-overlay" width="450" height="107" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 450px; height: 107px;"></canvas></div>
+                  
+                </div>
+              </div>
+            </div>
+
+  
+        <script type="text/javascript" src="./static/jquery.min.js"></script>
+        <script type="text/javascript" src="./static/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./static/animo.min.js"></script>
+        <script type="text/javascript" src="./static/jquery.easypiechart.min.js"></script>
+        <script type="text/javascript" src="./static/toastr.min.js"></script>
+         <script type="text/javascript" src="./static/socket.io.min.js"></script>
+        
+ <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+
+    toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": true,
+  "positionClass": "toast-bottom-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "10000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}, 
+            // Use a "/test" namespace.
+            // An application can open a connection on multiple namespaces, and
+            // Socket.IO will multiplex all those connections on a single
+            // physical channel. If you don't care about multiple channels, you
+            // can set the namespace to an empty string.
+            namespace = '/test';
+
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            socket.on('connect', function() {
+                socket.emit('my_event', {data: 'I\'m connected!'});
+            });
+
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+            socket.on('my_response', function(msg) {
+           
+            });
+            socket.on('iresponse', function(msg) {
+                toastr.info(msg.data, "信息一条");    
+            });
+            socket.on('wresponse', function(msg) {
+                toastr.warning(msg.data, "有错误了");    
+            });
+            socket.on('eresponse', function(msg) {
+                toastr.error(msg.data, "致命错误");    
+            });
+            socket.on('sresponse', function(msg) {
+                toastr.success(msg.data, "成功");
+            });
+
+            // Interval function that tests message latency by sending a "ping"
+            // message. The server then responds with a "pong" message and the
+            // round trip time is measured.
+            var ping_pong_times = [];
+            var start_time;
+            window.setInterval(function() {
+                start_time = (new Date).getTime();
+                socket.emit('my_ping');
+            }, 1000);
+
+            // Handler for the "pong" message. When the pong is received, the
+            // time from the ping is stored, and the average of the last 30
+            // samples is average and displayed.
+            socket.on('my_pong', function() {
+                var latency = (new Date).getTime() - start_time;
+                ping_pong_times.push(latency);
+                ping_pong_times = ping_pong_times.slice(-30); // keep last 30 samples
+                var sum = 0;
+                for (var i = 0; i < ping_pong_times.length; i++)
+                    sum += ping_pong_times[i];
+                $('#ping-pong').text(Math.round(10 * sum / ping_pong_times.length) / 10);
+            });
+
+            // Handlers for the different forms in the page.
+            // These accept data from the user and send it to the server in a
+            // variety of ways
+        });
+ 
+    </script>
+</body>
+
+</html>
