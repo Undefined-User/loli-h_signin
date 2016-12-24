@@ -11,5 +11,6 @@ loli-h自动签到
 - pip install -r requirements。txt
 
 ##### 运行
-- python apppy
+- python app.py
+
 ###### 阿偶，我不知道在flask-socketio之下我该怎么用gunicorn启动了
