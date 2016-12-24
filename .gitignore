@@ -1,6 +1,7 @@
 .DS_Store
 Thumbs.db
 Gemfile.lock
+*.pyc
 db.json
 *.log
 node_modules/
